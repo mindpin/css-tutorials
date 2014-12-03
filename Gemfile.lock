@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/mindpin/edu-game-map.git
+  revision: 60ec01debc2b7dda5398424ab83a3deca058d323
+  specs:
+    edu-game-map (0.0.1)
+      json
+      mongoid (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +47,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     connection_pool (2.1.0)
+    database_cleaner (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
@@ -161,6 +170,8 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  database_cleaner (~> 1.2.0)
+  edu-game-map!
   haml
   jbuilder (~> 2.0)
   jquery-rails

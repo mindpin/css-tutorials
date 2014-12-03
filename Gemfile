@@ -32,6 +32,7 @@ gem 'spring',        group: :development
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem "database_cleaner", "~> 1.2.0"
 end
 
 gem "haml"
@@ -39,3 +40,6 @@ gem "pry" # 加强的 irb
 gem "mongoid", "~> 4.0.0"
 gem "simple_form", "~> 3.0.2"
 gem "unicorn"
+
+
+gem 'edu-game-map', github: 'mindpin/edu-game-map'

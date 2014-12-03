@@ -35,4 +35,13 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.before :each do
+    DatabaseCleaner[:mongoid].strategy = :truncation
+    DatabaseCleaner[:mongoid].start
+  end
+
+  config.after :each do
+    DatabaseCleaner[:mongoid].clean
+  end
 end
