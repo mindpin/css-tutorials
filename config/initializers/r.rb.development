@@ -1,0 +1,5 @@
+class R
+  WEIBO_APP_KEY          = "515739018"
+  WEIBO_APP_SECRET       = "abeexxxxxxsdfsdfsdf23dfg45"
+  WEIBO_APP_CALLBACK_URL = "http://localhost:3000/auth/weibo/callback"
+end

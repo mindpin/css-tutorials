@@ -1,0 +1,13 @@
+development:
+  sessions:
+    default:
+      database: css-tutorials_development
+      hosts:
+        - localhost:27017
+        
+test:
+  sessions:
+    default:
+      database: css-tutorials_test
+      hosts:
+        - localhost:27017
