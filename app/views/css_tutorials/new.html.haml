@@ -1,6 +1,13 @@
-= simple_form_for CssTutorial.new do |f|
-  = f.input :title
-  = f.input :rule
-  .markdown-editor
-    = f.input :tips, as: :text, input_html: { class: 'markdown-source' }
-  = f.button :submit
+.form-css-tutorial
+  = simple_form_for CssTutorial.new do |f|
+    = f.input :title
+    = f.input :tid
+    .html.editor
+      = f.input :html, as: :text, input_html: {class: 'source'}
+    .css.editor
+      = f.input :css, as: :text, input_html: {class: 'source'}
+    .js.editor
+      = f.input :check_data, as: :text, input_html: {class: 'source'}
+    .markdown.editor
+      = f.input :tips_data, as: :text, input_html: { class: 'source' }
+    = f.button :submit
