@@ -1,0 +1,6 @@
+= simple_form_for CssTutorial.new do |f|
+  = f.input :title
+  = f.input :rule
+  .markdown-editor
+    = f.input :tips, as: :text, input_html: { class: 'markdown-source' }
+  = f.button :submit

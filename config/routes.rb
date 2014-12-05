@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get  "/sign_out",    to: "auth#destroy"
   get  "/auth/:provider/callback",    to: "auth#callback"
   get  "/auth/weibo",  to: "auth#weibo"
+
+
+  resources :css_tutorials
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
