@@ -1,0 +1,86 @@
+// 摇晃并闪烁，用于表现被击中的效果
+@include keyframes(beattack) {
+  0%, 10%, 100% {transform:translate(0, 0);}
+  2% {
+      transform:translate(25px, 0);
+      opacity:.7;
+      -webkit-filter: sepia(100%) invert(60%);
+      filter: sepia(100%) invert(60%);
+  }
+  4% {
+      transform:translate(-25px, 0);
+      opacity:.7;
+  }
+  6% {
+      transform:translate(25px, 0);
+      opacity:.7;
+  }
+  8% {
+      transform:translate(-25px, 0);
+      opacity:.7;
+  }
+  100% {
+     -webkit-filter: sepia(0) invert(0);
+     filter: sepia(0) invert(0);
+  }
+}
+
+@include keyframes(shake) {
+  $w:5px;
+
+  0%   { transform:translate(-$w, 0); opacity: 1;}
+  25%  { transform:translate(0, $w); }
+  50%  { transform:translate($w, 0); opacity: 0.5;}
+  75%  { transform:translate(0, -$w); }
+  100% { transform:translate(-$w, 0); opacity: 1;}
+}
+
+// 旋转放大
+@include keyframes(rotate_fadein) {
+  0%   { -webkit-transform:scale(0.1) rotate(-90deg);}
+  100% { -webkit-transform:scale(1) rotate(0);}
+}
+
+// 呼吸闪烁
+@include keyframes(breathe) {
+  0%   { opacity: 1;}
+  50%  { opacity: 0.4;}
+  100% { opacity: 1;}
+}
+
+// 旋转缩小
+@include keyframes(rotate_fadeout) {
+  0%   { transform:scale(1) rotate(0) translate(0, 0);opacity:1}
+  100% { transform:scale(0) rotate(720deg) translate(0, 1000px);}
+}
+
+// 2s
+.animation-be-attack {
+  @include animation((beattack 2s 1 ease-in-out forwards));
+}
+
+.shake {
+  @include animation(shake .2s infinite);
+}
+
+.animation-tip-to {
+  position:relative;
+  &:after {
+    content:"";
+    position:absolute;
+    box-sizing:border-box;
+    top:3px;left:3px;right:3px;bottom:3px;
+    border:dashed 2px rgba(#FC0, 0.7);
+    pointer-events: none;
+    z-index:100;
+    background-color:rgba(#fc0, 0.05);
+    @include animation((rotate_fadein 2s 1 forwards, breathe 1s infinite 2s));
+  }
+  &.tip2:after {
+    @include animation((rotate_fadeout 1s 1 forwards));
+  }
+}
+
+.be-attack-and-fade {
+  @include animation((beattack 2s 1 ease-in-out, rotate_fadeout 1s 1 2s forwards));
+}

@@ -1,7 +1,9 @@
 class IndexController < ApplicationController
+  layout "cover", :only => [:index, :play]
+
   def index
-    if !signed_in?
-      redirect_to "/sign_in"
-    end
+  end
+
+  def play
   end
 end

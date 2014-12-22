@@ -1,0 +1,109 @@
+@include keyframes(littlec_move) {
+  0%{top:120px - 120px}
+  6%{top:100px - 120px}
+  97%{top:100px - 120px}
+  100%{top:120px - 120px}
+}
+
+@include keyframes(littlec_eye1) {
+  0%{opacity:1.0;left:45px}
+  11%{opacity:0;left:45px}
+  12%{opacity:1.0;left:45px}
+
+  22%{opacity:1.0;left:45px}
+  23%{opacity:0;left:45px}
+  24%{opacity:1.0;left:45px}
+
+  27%{opacity:1.0;left:45px}
+  28%{opacity:0;left:45px}
+  29%{opacity:1.0;left:45px}
+  33%{opacity:1.0;left:90px}
+
+  45%{opacity:1.0;left:90px}
+  46%{opacity:0;left:90px}
+  47%{opacity:1.0;left:90px}
+
+  50%{opacity:1.0;left:90px}
+  51%{opacity:0;left:90px}
+  52%{opacity:1.0;left:90px}
+  55%{opacity:1.0;left:45px}
+}
+
+@include keyframes(littlec_eye2) {
+  0%{opacity:1.0;left:62px}
+  11%{opacity:0;left:62px}
+  12%{opacity:1.0;left:62px}
+
+  22%{opacity:1.0;left:62px}
+  23%{opacity:0;left:62px}
+  24%{opacity:1.0;left:62px}
+
+  27%{opacity:1.0;left:62px}
+  28%{opacity:0;left:62px}
+  29%{opacity:1.0;left:62px}
+  33%{opacity:1.0;left:107px}
+
+  45%{opacity:1.0;left:107px}
+  46%{opacity:0;left:107px}
+  47%{opacity:1.0;left:107px}
+
+  50%{opacity:1.0;left:107px}
+  51%{opacity:0;left:107px}
+  52%{opacity:1.0;left:107px}
+  55%{opacity:1.0;left:62px}
+}
+
+.roles-little-c {
+  // $c:#FCF178;
+  $c:#F4C042;
+  position:relative;
+  width:160px;
+  height:160px;
+
+  .c{
+    position:absolute;
+    // left:128px;top:120px;
+    @include animation(littlec_move 5s ease .1s infinite);
+
+    .c-circle{
+      width:90px;
+      height:90px;
+      border-radius:100%;
+      border:4px solid $c;
+      position:absolute;
+      left:27px;
+      top:27px;
+    }
+
+    .eye{
+      width:6px;
+      height:6px;
+      border-radius:100%;
+      position:absolute;
+      left:45px;
+      top:80px;
+      background:$c;
+      @include animation(littlec_eye1 5.0s ease .1s infinite);
+    }
+    .eye2{
+      left:62px;
+      @include animation(littlec_eye2 5.0s ease .1s infinite);
+    }
+  }
+  .line{
+    position:absolute;
+    width:150px;
+    height:3px;
+    background:$c;
+    border-radius:1px;
+    top:73px;
+    z-index:109;
+    &:after {
+      content:"";
+      position: absolute;
+      width:150px;height:50px;
+      background:#161616;
+      top:3px;
+    }
+  }
+}

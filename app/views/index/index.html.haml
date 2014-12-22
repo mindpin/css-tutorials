@@ -1,6 +1,28 @@
-.name= current_user.name
-%image.avatar{:src=> current_user.avatar}
-%a.logout{:href=>"/sign_out"}退出登录
+.game-header
+  .page-tree
+    .box
+      .tree
+        - 1.upto 8 do |i|
+          %figure{:class => "f#{i}"}
+            %span.i1
+            %span.i2
+            %span.i3
+            %span.i4
 
-.css_tutorials
-  %a{:href=>"/css_tutorials"} css_tutorials
+  .page-index-logo
+    %span.css CSS
+    %span TRAVELS
+
+  .page-little-c
+    = render_cell :roles, :little_c
+
+%a.play-button{:href => '/play', :data => {:toggle => true}}
+  .icon
+  %span.text 开始游戏
+
+.desc
+  %span 通过游戏的方式学习 CSS3 前端技术
+
+.follow
+  %span follow me at
+  %a{:href => 'http://github.com/ben7th', :target => '_blank'} ben7th@github

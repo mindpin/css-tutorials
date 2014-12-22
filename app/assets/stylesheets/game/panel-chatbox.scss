@@ -1,0 +1,111 @@
+@include keyframes(click_to_continue) {
+  0%   { color: #666; }
+  50%  { color: #aaa; }
+  100% { color: #666; }
+}
+
+@include keyframes(click_to_continue_i) {
+  0%   { border-left-color: #666; transform:translate(-3px, 0); }
+  50%  { border-left-color: #aaa; transform:translate(0, 0); }
+  100% { border-left-color: #666; transform:translate(-3px, 0); }
+}
+
+
+.panel.chatbox {
+  @include unselectable;
+
+  .chatpop {
+    position: relative;
+    padding: $grid-gap / 2;
+
+    $w: 64px;
+
+    img.avatar {
+      width:$w;height:$w;
+      border-radius:4px;
+      position:relative;
+      float:left;
+    }
+
+    .area {
+      margin-left: $w + $grid-gap / 2 + 10px;
+
+      .pop {
+        float: left;
+        background-color: rgba(white, 0.1);
+        border-radius: 4px;
+        font-size: 16px;
+        padding: ($w - 28px) / 2 20px;
+        line-height:28px;min-height:28px;
+        cursor:default;
+        position: relative;
+        margin-bottom: 10px;
+
+        $w1: $w;
+        &:before {
+          $w:10px;
+          content:"";
+          position:absolute;
+          border:solid $w transparent;
+          border-right:solid $w rgba(white, 0.1);
+          left:-$w * 2;
+          top:$w1 / 2 - $w;
+        }
+
+        .name {
+          color:#999;
+        }
+      }
+
+      .click-to-continue {
+        float: left;
+        color: #999;
+        clear: both;
+        font-size: 16px;
+        cursor: default;
+        @include animation(click_to_continue 1s infinite);
+        position: relative;
+        height:32px;line-height:32px;
+
+        $w:6px;
+        &:before, &:after {
+          content: "";
+          border:solid $w transparent;
+          border-left:solid $w #999;
+          width:0;height:0;position:absolute;
+          right:-$w * 2 - 10px;
+          top: (32px - $w * 2) / 2;
+          @include animation(click_to_continue_i 1s infinite);
+        } 
+        &:after {
+          right: -$w * 3 - 10px - 2px;
+        }
+      }
+    }
+
+    &.no-npc {
+      // .area {margin-left:0;}
+      .area .pop {color:#aaa;}
+      .area .pop:before {display: none;}
+    }
+  }
+
+  // .tip-info {
+  //   padding: $grid-gap / 2;
+
+  //     .click-to-continue {
+  //       color: #999;
+  //       clear:both;
+  //       font-size: 16px;
+  //       cursor: default;
+  //       i {
+  //         font-size: 14px;
+  //         position:relative;
+  //         @include animation((click_to_continue_i 1s infinite));
+  //       }
+
+  //       @include animation((click_to_continue 1s infinite));
+  //     }
+  //   }
+  // }
+}

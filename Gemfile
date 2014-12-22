@@ -1,5 +1,4 @@
-source 'https://rubygems.org'
-
+source 'https://ruby.taobao.org/'
 
 gem 'rails', '4.1.2'
 gem 'sass-rails', '~> 4.0.3'
@@ -40,6 +39,6 @@ gem "pry" # 加强的 irb
 gem "mongoid", "~> 4.0.0"
 gem "simple_form", "~> 3.0.2"
 gem "unicorn"
-
+gem 'cells', '~> 3.10.1' # 用于复用一些前端组件
 
 gem 'edu-game-map', github: 'mindpin/edu-game-map'

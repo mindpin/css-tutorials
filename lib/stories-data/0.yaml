@@ -1,0 +1,41 @@
+npcs:
+  - name: ben7th
+    avatar: http://img.teamkn.com/i/HeFmHFQq.png
+
+scripts:
+  - aside: 
+    - 这一天，你被邀请到软件工程师 ben7th 的研究室，参加在这里进行的技术 PARTY。
+    - delay: 500
+      text: 你在门口签到完，坐在位置里等待。
+    - 不一会，ben7th 及时露面。还是一如既往，一本正经地开始了他的开场白。
+
+  - chat: ben7th
+    content:
+      - 大家好！我是 ben7th. 首先告诉大家一个好消息：
+      - nowait: 就在 2014年10月28号，W3C 的 HTML5 正式标准终于发布啦！这里是标准文档：
+      - link: http://www.w3.org/TR/2014/REC-html5-20141028/
+        text: http://www.w3.org/TR/2014/REC-html5-20141028/
+        title: HTML5 正式标准文档
+      - 今后已经是 HTML5 的时代，大家要与时俱进，跟紧节奏 ~
+
+  - chat: ben7th
+    content:
+      - 什么？你不知道什么是 HTML5 ？ 
+      - delay: 500
+        text: 呃 ……
+      - 简单说吧，你现在在浏览器里看到的所有东西，都是用 HTML 来表示的。
+      - 换句话说呢，HTML 是一种用来写网页的计算机语言。
+
+  - chat: ben7th
+    content:
+      - delay: 500
+        text: HTML5 就是这个语言的最新规范 ~ 比较潮 ~
+      - 不过今天我们的重点是 CSS ，你知道什么是 CSS 吗？
+
+  - select:
+      question: CSS 是什么？
+      items:
+        - 一种好吃的东西
+        - 样式表语言
+        - 神秘的咒语
+        - 不知道！

@@ -1,0 +1,199 @@
+body.cover {
+  .game-header {
+    @include clearfix;
+    height:187px;
+    width: 440px + 160px + 60px;
+    margin:0 auto;
+
+    .page-index-logo {
+      margin-top:50px;
+      font-family: $font-futura;
+      font-size: 96px;
+      .css {color:lighten(#F9E715, 20%);}
+      text-align:center;
+      width:440px;
+      float:left;
+    }
+    .page-little-c {
+      float: left;
+      margin-top: 78px;
+    }
+  }
+
+  .play-button {
+    $c:#FCF178;
+    $w:96px;
+
+    width: $w + 8px;
+    display: block;
+    text-decoration:none;
+    margin:50px auto 0;
+
+    .icon {
+      @include transition(all ease-in-out .4s);
+      
+      width:$w;height:$w;
+      border:solid 4px $c;
+      border-radius:500px;
+      position: relative;
+
+      &:before {
+        content: "";
+        $w1: $w * 0.25;
+        position: absolute;
+        border-top: solid $w1 transparent;
+        border-bottom: solid $w1 transparent;
+        border-left: solid $w1 * 1.732 $c;
+        border-right: solid $w1 * 1.732 transparent;
+        top: $w / 2 - $w1;
+        left: $w / 2 - $w1 * 2 / 3;
+        @include transition(all ease-in-out .4s);
+      }
+
+      &:after {
+        top:-7px;left:-7px;padding:7px;
+        width:100%;height:100%;
+        box-shadow:0 0 0 4px $c;
+        pointer-events:none;
+        content:"";
+        position:absolute;
+        border-radius:50%;
+        @include transform(scale(1.2));
+        opacity:0;
+        @include transition(all ease-in-out .4s);
+      }
+    }
+
+    .text {
+      display: block;
+      text-align:center;
+      font-size:24px;
+      font-weight:bold;
+      color:$c;
+      margin-top:20px;
+    }
+
+    &:hover {
+      .icon {
+        background-color: rgba($c, 0.1);
+        // background-color: $c;
+        // border-color: transparent;
+        border-color:#161616;
+        &:before {
+          // border-left-color: #161616;
+        }
+        &:after {
+          @include transform(scale(1));
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .desc {
+    width:280px;
+    text-align:center;
+    font-size: 16px;
+    margin: 60px auto 0;
+    padding:30px;
+    background: rgba(#000, 0.1);
+    color: rgba(#fff, 0.7);
+    border-radius:4px;
+    font-weight: bold;
+  }
+  .follow {
+    margin-top:40px;
+    text-align:center;
+    font-size:16px;
+    height:24px;line-height:24px;
+    padding-right:24px;
+    &:after {
+      content:"";
+      width:24px;height:24px;
+      background:url(http://img.teamkn.com/i/HeFmHFQq.png@100h.png) rgba(#000, 0.1);
+      background-size: cover;
+      position:absolute;
+      border-radius:300px;
+      margin-left:10px;
+    }
+  }
+}
+
+
+.page-tree {
+  position:relative;
+  top:79px;
+  float:left;
+  width:60px;
+  height:60px;
+
+  .box {
+    $scale:0.29;
+    @include perspective(600px);
+    @include transform-style(preserve-3d);
+    @include transform(scale3d($scale, $scale, $scale));
+    @include transform-origin(0 0);
+  }
+}
+.tree {
+  $green: #5e0;
+  $w:100px;
+
+  width:$w * 2;
+  height:$w * 2;
+
+  @include transform-style(preserve-3d);
+  @include transform-origin($w 0%);
+  @include animation(rotate 10s linear infinite);
+
+  figure {
+    pointer-events: none;
+    position:absolute;
+    margin:0;
+    padding:0;
+    opacity:0.6;
+    @include transform-origin($w 0%);
+    border:solid 1px transparent;
+    box-sizing:border-box;
+    
+    @for $i from 1 through 8 {
+      &.f#{$i} {
+        @include transform(rotate3d(0, 1, 0, #{(-1 + $i) * 45deg}));      
+      }
+    }
+    
+    span {
+      display:block;
+      width: 0;
+      height: 0;
+    }
+    
+    .i1 {
+      margin-left: $w * 0.6;
+      border-bottom: $w * 0.8 solid darken($green, 8);
+      border-left: $w * 0.4 solid transparent;
+    }
+    .i2 {
+      margin-top: - $w * 0.26;
+      margin-left: $w * 0.34;
+      border-bottom: $w * 0.92 solid darken($green, 4);
+      border-left: $w * 0.66 solid transparent;
+    }
+    .i3 {
+      margin-top: - $w * 0.4;
+      border-bottom: $w * 1.2 solid darken($green, 0);
+      border-left: $w solid transparent;
+    }
+    .i4 {
+      margin:0 0 0 $w * 0.8;
+      height:$w * 0.4;
+      border-left:solid $w * 0.2 #6B371F;
+    }
+  }
+  
+}
+
+@include keyframes(rotate){
+  0% { @include transform(rotate3d(0, 1, 0, 0deg)); }
+  100% { @include transform(rotate3d(0, 1, 0, 360deg)); }
+}

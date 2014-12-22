@@ -1,0 +1,120 @@
+init:
+  css: |
+    /* 这里是 CSS 代码 */
+    body {
+      background-color: #ffffff;
+    }
+
+  html: |
+    <!DOCTYPE html>
+    <html lang='zh'>
+
+    <head>
+      <title>CSS Legend</title>
+    </head>
+
+    <body>
+      <article>第一课：操作简介</article>
+    </body>
+
+npcs:
+  - name: ben7th
+    avatar: http://img.teamkn.com/i/HeFmHFQq.png
+    # avatar: http://img.teamkn.com/i/nGJqPEse.png
+
+  - name: 奇怪的猫
+    avatar: http://img.teamkn.com/i/pkXts7QC.png
+
+  - name: 不知从哪来的声音
+    avatar: http://img.teamkn.com/i/lWy2oZvs.png
+
+scripts:
+  - npc: ben7th
+    content: 
+      - Hi! 朋友~ 欢迎来到“CSS 传说”。这是一个学习 CSS 的游戏课程。
+      - 我是设计者 ben7th，很高兴见到你 :)
+
+  - npc: ben7th
+    content: 
+      - 我们现在就开始学习吧，先进行一些简单的准备。
+      - 让我来给你介绍游戏场景的界面和操作方法。~
+
+  - npc: ben7th
+    content: 
+      - 我会一步一步地带你学习。没有基础也不用担心。
+
+  - npc: ben7th
+    content:
+      - ':animation:tip-to-css-panel'
+      - 首先，我们来看上面的这个输入区域：
+      - 在这个区域里你可以输入 CSS 代码。
+      - 后面你会经常在这里进行编码操作 ~
+
+  - npc: ben7th
+    content: 
+      # - 继续介绍下一部分，
+      # - ':animation:tip-to-html-panel'
+      # - 这边的输入区域：
+      - ':animation:html-be-attack'
+      - ':shake'
+      - ':animation:npc-be-attack'
+      - 啊！——
+      - 这是什么情况 ~~
+
+  - npc: 奇怪的猫
+    content:
+      - 喵 —— 呵呵呵 ~
+      - 我是来搞破坏的！
+      - 你今天别想上课啦！
+
+  - npc: ben7th
+    content:
+      - ':shake'
+      - 我不能动了！你是谁 ~~~ 
+      - 这是什么巫术 ~~~~
+
+  - npc: 奇怪的猫
+    content:
+      - 这些界面太碍事了。我要把他们都变没。首先是这个 ——
+      - ':animation:lock-css-area'
+      - 还有这个 ——
+      - ':animation:lock-html-area'
+      - 这个 ——
+      - ':animation:lock-preview-area'
+      - 最后，你也消失吧 ~~ ☆
+
+  - npc: ben7th
+    content:
+      - ':shake'
+      - '啊啊啊啊啊啊啊&!@%^&*($%^& ~~~'
+      - ':animation:npc-be-attack'
+      - ':animation:ben7th-fly'
+
+  - npc: 奇怪的猫
+    content:
+      - 好了，他滚了。
+      - 你们在这里慢慢发呆吧，我也走了。喵 ——
+      - ':animation:badcat-fadeout'
+
+  - npc: 不知从哪来的声音
+    content:
+      - ……
+      - 教程会按照一定的情节展开，给人讲故事的感觉。
+      - 每个教程都以“讲故事”的形式出现，这也是一种游戏化尝试。
+      - 【目前只做了这么多】
+
+  # - npc: 不知从哪来的声音
+  #   content:
+  #     - 朋友，到这边来。
+  #     - 那只猫已经走远了。
+
+  # - npc: 不知从哪来的声音
+  #   content:
+  #     - 什么？你看不到我？
+  #     - 我在这里，看到了吗？
+  #     - 现在呢？
+
+  # - npc: 不知从哪来的声音
+  #   content:
+  #     - 我已经没有能量了。
+  #     - 你得自己把我找出来。

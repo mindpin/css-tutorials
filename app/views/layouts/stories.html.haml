@@ -1,0 +1,38 @@
+!!!
+%html{:lang => :zh}
+  %head
+    %title CSS Travels
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %body
+    .page-header
+      .logo
+        %span.css CSS 
+        %span Travels
+      .little-c
+        .box
+          = render_cell :roles, :little_c
+
+      - if current_user
+        .user-info
+          .ops
+            .icon
+            .menu
+              %a.item.user-page{:href => "/"}
+                %i.fa.fa-list
+                %span 故事目录
+              %a.item.user-page{:href => "/users/#{current_user.id}"}
+                %i.fa.fa-user
+                %span 我的进度
+              %a.item.sign-out{:href => "/sign_out"}
+                %i.fa.fa-power-off
+                %span 退出登录
+          .avatar
+            %image{:src=> current_user.avatar}
+      - else
+        .user-info
+          .not-auth 你没有登录
+        
+    .page-content
+      = yield

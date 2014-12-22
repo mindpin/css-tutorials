@@ -1,0 +1,14 @@
+init:
+  css: |
+
+  html: |
+
+npcs:
+  - name: unknown
+    avatar: http://img.teamkn.com/i/lWy2oZvs.png
+
+scripts:
+  - npc: unknown
+    content:
+      - 那只猫把很多东西锁住了。
+      - 我来尝试恢复一下。
