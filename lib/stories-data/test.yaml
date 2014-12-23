@@ -1,0 +1,13 @@
+npcs:
+  - id: ben7th
+    name: 测试中的洋气书生
+    avatar: http://img.teamkn.com/i/nGJqPEse.png
+
+scripts:
+  - aside:
+    - 这是一个用来测试的脚本
+    - 这是一个对话泡泡
+
+  - aside:
+    - text: 这也是一个对话泡泡
+    - text: 这种写法和上面等价

@@ -1,0 +1,127 @@
+这一天，你被邀请到工程师 ben7th 的研究中心，参加一场技术讲座。
+由于交通问题，你来得稍微晚了一会。
+讲座好像已经开始一段时间了，ben7th 正说到前端开发的话题。
+
+ben7th：
+  …… 所以2014年10月28号，完整的规范确定以后，HTML5 的时代就真正到来了。
+  CSS3 正是 HTML5 的重要组成概念之一。
+  如果你能活用 CSS3，你就能把网页的视觉呈现做得特别精彩 ……
+
+由于你不是从头听起的，感觉一些术语不是太懂。
+正有些愣神的时候，ben7th 正好走过来。
+
+ben7th：
+  这位朋友是才来的吧，我问个问题吧。
+  你知道什么是 CSS 吗？
+
+
+
+
+
+
+
+
+
+
+
+
+
+  - aside: 
+    - 这一天，你被邀请到软件工程师 ben7th 的研究室，参加在这里进行的技术讲座。
+    - delay: 400
+      text: 你在门口签到完，坐在位置上等着。
+    - 不一会，ben7th 及时露面，一本正经地开始了开场白。
+
+  - chat: ben7th
+    content:
+      - 大家好！我是 ben7th. 首先告诉大家一个好消息：
+      - nowait: 就在 2014年10月28号，W3C 的 HTML5 正式标准终于发布啦！这里是标准文档：
+      - link: http://www.w3.org/TR/2014/REC-html5-20141028/
+        text: http://www.w3.org/TR/2014/REC-html5-20141028/
+        title: HTML5 正式标准文档
+      - 今后已经是 HTML5 的时代，大家要与时俱进，跟紧节奏 ~
+
+  - chat: ben7th
+    content:
+      - 什么？有人不知道什么是 HTML5 ？ 
+      - delay: 500
+        text: 呃 ……
+      - 简单说吧，你现在在浏览器里看到的所有东西，都是用 HTML 来表示的。
+      - 换句话说呢，HTML 是一种用来写网页的计算机语言。
+
+  - chat: ben7th
+    content:
+      - delay: 500
+        text: HTML5 就是这个语言的最新规范 ~ 比较潮 ~
+      - delay: 200
+        text: 不过今天我们的重点是 CSS ，你知道什么是 CSS 吗？
+    keep: true
+
+  - select: CSS 是什么？
+    items:
+      - 好吃的东西
+      - 样式表语言
+      - 神秘的咒语
+      - 叉(C) 烧(S) 笋(S)
+
+  - clearchat: true
+
+  - by_last_result:
+      correct: 2
+      scripts:
+        - chat: ben7th
+          content:
+            - 吃货，就知道吃。吃多了会变胖子 ~
+            - delay: 500 
+              text: CSS 也是一种语言。和 HTML 结合起来使用的语言。
+            - delay: 500
+              text: 有了 CSS ，网页就可以变得更好看一些。
+              delay: 500
+            - 到了今天，CSS 还可以用来做一些很酷炫的效果 ~
+        - chat: ben7th
+          content:
+            - 你还挺明白的啊。不错么。
+            - delay: 500 
+              text: CSS 也是一种语言。和 HTML 结合起来使用的语言。
+            - delay: 500
+              text: 有了 CSS ，网页就可以变得更好看一些。
+              delay: 500
+            - 到了今天，CSS 还可以用来做一些很酷炫的效果 ~
+        - chat: ben7th
+          content:
+            - 虽然这么说好像也没错 …… 不过有些中二啊。
+            - delay: 500 
+              text: CSS 也是一种语言。和 HTML 结合起来使用的语言。
+            - delay: 500
+              text: 有了 CSS ，网页就可以变得更好看一些。
+            - 到了今天，CSS 还可以用来做一些很酷炫的效果 ~
+        - chat: ben7th
+          content:
+            - 不要玩这种抖机灵的拼音游戏 …！
+            - delay: 500 
+              text: CSS 也是一种语言。和 HTML 结合起来使用的语言。
+            - delay: 500
+              text: 有了 CSS ，网页就可以变得更好看一些。
+            - 到了今天，CSS 还可以用来做一些很酷炫的效果 ~
+
+  - chat: ben7th
+    content:
+      - delay: 400
+        text: 概括来说的话：
+      - delay: 400
+        important: true
+        text: HTML 决定了网页上有什么东西。
+      - delay: 400
+        important: true 
+        text: CSS 决定了这些东西看起来是什么样子。
+      - nowait: 这样对于工程师来说是很方便的。
+    keep: true
+
+  - chat: 机器人助手
+    content:
+      - nowait: 咖啡来了。请喝咖啡。
+    keep: true
+  
+  - chat: ben7th
+    content:
+      - 噢好的，谢谢。

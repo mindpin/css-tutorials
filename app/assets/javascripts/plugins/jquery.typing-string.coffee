@@ -3,6 +3,7 @@ _show = ($el, str, idx, callback)->
     $el.append str[idx]
     setTimeout ->
       _show $el, str, idx + 1, callback
+    , 20
 
   else
     $el.append jQuery('<br/>')

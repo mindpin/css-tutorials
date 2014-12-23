@@ -1,64 +1,3 @@
-# 对话面板
-window.ChatBox = class ChatBox
-  constructor: (@game)->
-    @$chatbox = jQuery('.panel.chatbox')
-
-  # 显示旁白脚本
-  # 旁白脚本可能包含多句对话
-  # 每一句对话后，需要显示“点击继续”
-  # 点击后，继续下一句对话
-  # 当对话全部完毕后，点击运行 callback
-  show_aside: (script, callback)->
-    gamelog '[chatbox] show aside'
-    gamelog script
-    
-    chatpop = new ChatPop @$chatbox
-    chatpop.callback = callback
-    @_show chatpop, script.aside, 0
-
-  # 显示对话脚本
-  # 对话脚本包括 NPC 头像
-  # 对话脚本可能包含多句对话
-  # 每一句对话后，需要显示“点击继续”
-  # 点击后，继续下一句对话
-  # 当对话全部完毕后，点击运行 callback
-  show_chat: (script, callback)->
-    gamelog "[chatbox] show chat by npc: #{script.chat}"
-    gamelog script
-    npc =  @game.get_npc script.chat
-    
-    chatpop = new ChatPop @$chatbox, npc
-    chatpop.callback = callback
-    @_show chatpop, script.content, 0
-
-  _show: (chatpop, content, idx)->
-    if idx < content.length
-      ct = content[idx]
-
-      _c0 = =>
-        gamelog '[chatbox] continue content'
-        @_show chatpop, content, idx + 1
-
-      _c1 = =>
-        chatpop.wait _c0
-
-
-      if typeof ct is 'string'
-        chatpop.append ct, _c1
-      else if ct.link?
-        chatpop.append_link ct.link, ct.text, ct.title, _c1
-      else if ct.nowait
-        chatpop.append ct.nowait, _c0
-      else if ct.delay
-        chatpop.append ct.text, =>
-          setTimeout =>
-            _c0()
-          , ct.delay
-
-    else
-      gamelog '[chatbox] content end'
-      chatpop.remove() # remove 里会调用 callback
-
 # 对话泡泡
 
 # 用法
@@ -103,23 +42,37 @@ window.ChatPop = class ChatPop
         .html @npc.name + ":"
         .appendTo @$pop
 
-  append: (str, callback)->
-    $log = buildel 'div.log'
+  text: (string, callback)->
+    $text = buildel 'span.text'
       .appendTo @$pop
-      .typing_string str, callback
+      .typing_string string, callback
 
-  append_link: (url, text, title, callback)->
-    $log = buildel 'div.log'
-      .appendTo @$pop
-    $a = buildel 'a.chat-link'
-      .attr
-        href: url
-        title: title
-        target: '_blank'
-      .appendTo $log
-      .typing_string text, callback
-      .on 'click', (evt)->
-        evt.stopPropagation()
+  append: (sentence)->
+    callback_holder = new CallbackHolder
+    finish = ->
+      callback_holder.do 'appended'
+
+    @text sentence.text, =>
+      @wait finish
+
+    return callback_holder
+
+    # $log = buildel 'div.log'
+    #   .appendTo @$pop
+    #   .typing_string str, callback
+
+  # append_link: (url, text, title, callback)->
+  #   $log = buildel 'div.log'
+  #     .appendTo @$pop
+  #   $a = buildel 'a.chat-link'
+  #     .attr
+  #       href: url
+  #       title: title
+  #       target: '_blank'
+  #     .appendTo $log
+  #     .typing_string text, callback
+  #     .on 'click', (evt)->
+  #       evt.stopPropagation()
 
   wait: (callback)->
     $wait = buildel 'div.click-to-continue'
@@ -131,10 +84,33 @@ window.ChatPop = class ChatPop
       $wait.remove()
       callback()
 
-  remove: ->
+  remove: (callback)->
     @$chatpop
       .animate
         'opacity': 0
       , 200, =>
         @$chatpop.remove()
-        @callback() if @callback()
+        callback() if callback
+
+
+  # 执行一系列子句
+  # 全部执行完毕后，调用回调方法
+  sentences: (sentences_data)->
+    callback_holder = new CallbackHolder
+    finish = ->
+      callback_holder.do 'finish'
+
+    @_sentences sentences_data, 0, finish
+
+    return callback_holder
+
+  _sentences: (data, idx, callback)->
+    if idx < data.length
+      gamelog "[chatpop][sentence] ##{idx}"
+      sentence = new ChatSentence data[idx]
+      @append(sentence).on 'appended', =>
+        @_sentences data, idx + 1, callback
+      return
+
+    gamelog '[chatpop] sentences finished'
+    @remove -> callback()

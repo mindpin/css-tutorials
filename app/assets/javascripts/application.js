@@ -20,9 +20,14 @@
 
 // game panel
 //= require game/utils
-//= require game/npc
-//= require game/chatpop
 //= require game/game
+//= require game/npc
+//= require game/script_runner
+//= require game/chatbox
+//= require game/chat_sentence
+
+//= require game/chatpop
+//= require game/questionpop
 
 //= require editor
 //= require animations
