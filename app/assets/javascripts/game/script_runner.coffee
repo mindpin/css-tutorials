@@ -18,6 +18,14 @@ window.ScriptRunner = class ScriptRunner
             gamelog '[runner] SENTENCES finished'
             finish()
 
+      if script.select
+        gamelog '[runner] script SELECT'
+        @chatbox
+          .show_question script
+          .on 'finish', =>
+            gamelog '[runner] SELECT finished'
+            finish()
+
     script.clear ?= true
     if script.clear
       @chatbox.clear _run
@@ -43,11 +51,6 @@ window.ScriptRunner = class ScriptRunner
     #     gamelog '[runner] chat:'
     #     @chatbox.show_chat script, =>
     #       gamelog '[runner] aside end, run next script'
-    #       callback()
-
-    #   when 'select'
-    #     gamelog '[runner] question:'
-    #     @chatbox.show_question script, =>
     #       callback()
 
     #   when 'by_last_result'

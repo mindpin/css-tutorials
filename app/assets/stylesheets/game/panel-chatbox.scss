@@ -11,6 +11,8 @@
 }
 
 $c: lighten(#4cc85e, 20%);
+// $c: lighten(#f4c042, 20%);
+$c: lighten(#A5CA39, 20%);
 @include keyframes(qpop) {
   0% {
     @include box-shadow(0 0 1px 1px $c, 0 0 3px 1px $c inset);
@@ -115,14 +117,13 @@ $c: lighten(#4cc85e, 20%);
   .questionpop {
     @include clearfix;
     position: relative;
-    padding: $grid-gap / 2;
+    padding: $grid-gap / 2 0;
     padding-bottom: 0;
 
     $w: 64px;
-    $c: lighten(#4cc85e, 20%);
     .box {
-      margin-left: $w + $grid-gap / 2 + 10px;
-      margin-right: $w + $grid-gap / 2 + 10px;
+      // margin-left: $w + $grid-gap / 2 + 10px;
+      // margin-right: $w + $grid-gap / 2 + 10px;
       padding: 20px;
       border-radius: 4px;
       line-height:28px;min-height:28px;

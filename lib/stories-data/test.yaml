@@ -1,7 +1,6 @@
 npcs:
   - id: ben7th
     name: 测试中的洋气书生
-    # avatar: http://img.teamkn.com/i/nGJqPEse.png
     avatar: http://img.teamkn.com/i/HeFmHFQq.png@100h.png
 
   - id: android
@@ -9,120 +8,141 @@ npcs:
     avatar: http://img.teamkn.com/i/tLsGEwZz.png
 
 scripts:
-  - sentences:
-    - 这是一个用来测试的脚本
-    - 这是一个对话泡泡
+  # - npc: ben7th
+  #   sentences:
+  #     - 钻石项链！！！
+  #     - text: 只要
+  #       delay: 300
+  #       linebreak: false
+  #     - text: '9'
+  #       delay: 300
+  #       style:
+  #         font-size: 32px
+  #       linebreak: false
+  #     - text: '9'
+  #       delay: 300
+  #       style:
+  #         font-size: 48px
+  #       linebreak: false
+  #     - text: '8'
+  #       style:
+  #         font-size: 64px
+  #       linebreak: false
 
-  - sentences:
-    - text: 这也是一个对话泡泡
-    - text: 这种写法和上面等价
+  # - sentences:
+  #   - 这是一个用来测试的脚本
+  #   - 这是一个对话泡泡
 
-  - sentences:
-    - text: 这句话的 delay = -1，和默认等价，也就是说，需要按键继续
-      delay: -1
-    - text: 这句话的 delay = 0，直接立即继续下一句话
-      delay: 0
-    - text: 这句话的 delay = 1000，延迟一秒
-      delay: 1000
-    - text: 再延迟 ……
-      delay: 500
-    - text: 再延迟 ……
-      delay: 500
-    - text: 再延迟 ……
-      delay: 500
-    - text: 好吧，什么也没有。
-    clear: false
+  # - sentences:
+  #   - text: 这也是一个对话泡泡
+  #   - text: 这种写法和上面等价
 
-  - sentences:
-    - text: 这句话 linebreak = false 所以不换行。
-      linebreak: false
-    - text: 这里是第二句话，看，没换行吧。
-    - text: 不换行和延时可以混用噢。
-      delay: 500
-      linebreak: false
-    - 这样能制造说半句话的停顿效果。
+  # - sentences:
+  #   - text: 这句话的 delay = -1，和默认等价，也就是说，需要按键继续
+  #     delay: -1
+  #   - text: 这句话的 delay = 0，直接立即继续下一句话
+  #     delay: 0
+  #   - text: 这句话的 delay = 1000，延迟一秒
+  #     delay: 1000
+  #   - text: 再延迟 ……
+  #     delay: 500
+  #   - text: 再延迟 ……
+  #     delay: 500
+  #   - text: 再延迟 ……
+  #     delay: 500
+  #   - text: 好吧，什么也没有。
+  #   clear: false
 
-  - sentences:
-    - text: 接下来是字体了：
-      delay: 0
-      linebreak: false
+  # - sentences:
+  #   - text: 这句话 linebreak = false 所以不换行。
+  #     linebreak: false
+  #   - text: 这里是第二句话，看，没换行吧。
+  #   - text: 不换行和延时可以混用噢。
+  #     delay: 500
+  #     linebreak: false
+  #   - 这样能制造说半句话的停顿效果。
 
-    - text: 这是粗体字
-      style:
-        font-weight: bold
+  # - sentences:
+  #   - text: 接下来是字体了：
+  #     delay: 0
+  #     linebreak: false
 
-    - text: 这是有颜色的字
-      style:
-        color: '#fcf178'
+  #   - text: 这是粗体字
+  #     style:
+  #       font-weight: bold
 
-    - text: 这是有颜色的粗体字
-      style:
-        color: '#44B2F5'
-        font-weight: bold
+  #   - text: 这是有颜色的字
+  #     style:
+  #       color: '#fcf178'
 
-    - text: 这是
-      delay: 0
-      linebreak: false
-      style:
-        color: white
-    - text: 被打穿
-      style:
-        text-decoration: 'line-through'
-        color: '#999'
-      delay: 0
-      linebreak: false
-    - text: 带删除线的字
-      style:
-        color: white
+  #   - text: 这是有颜色的粗体字
+  #     style:
+  #       color: '#44B2F5'
+  #       font-weight: bold
 
-    - text: 这是
-      delay: 300
-      linebreak: false
-    - text: 大
-      style:
-        font-size: 24px
-        font-weight: bold
-      delay: 300
-      linebreak: false
-    - text: 大
-      style:
-        font-size: 32px
-        font-weight: bold
-      delay: 300
-      linebreak: false
-    - text: 大
-      style:
-        font-size: 48px
-        font-weight: bold
-      delay: 300
-      linebreak: false
-    - text: 字
+  #   - text: 这是
+  #     delay: 0
+  #     linebreak: false
+  #     style:
+  #       color: white
+  #   - text: 被打穿
+  #     style:
+  #       text-decoration: 'line-through'
+  #       color: '#999'
+  #     delay: 0
+  #     linebreak: false
+  #   - text: 带删除线的字
+  #     style:
+  #       color: white
 
-  - npc: ben7th
-    sentences:
-      - text: '啊啊 '
-        style:
-          font-size: 16px
-          font-weight: bold
-        delay: 300
-        linebreak: false
-      - text: '啊啊啊 '
-        style:
-          font-size: 24px
-          font-weight: bold
-          color: '#fcf178'
-        delay: 300
-        linebreak: false
-      - text: '啊啊啊啊 '
-        style:
-          font-size: 32px
-          font-weight: bold
-          color: '#44B2F5'
-        delay: 300
-        linebreak: true
-      - text: 我好困 …… 写不完 ……
-      - text: 书生的微博
-        link: http://weibo.com/ben7th
+  #   - text: 这是
+  #     delay: 300
+  #     linebreak: false
+  #   - text: 大
+  #     style:
+  #       font-size: 24px
+  #       font-weight: bold
+  #     delay: 300
+  #     linebreak: false
+  #   - text: 大
+  #     style:
+  #       font-size: 32px
+  #       font-weight: bold
+  #     delay: 300
+  #     linebreak: false
+  #   - text: 大
+  #     style:
+  #       font-size: 48px
+  #       font-weight: bold
+  #     delay: 300
+  #     linebreak: false
+  #   - text: 字
+
+  # - npc: ben7th
+  #   sentences:
+  #     - text: '啊啊 '
+  #       style:
+  #         font-size: 16px
+  #         font-weight: bold
+  #       delay: 300
+  #       linebreak: false
+  #     - text: '啊啊啊 '
+  #       style:
+  #         font-size: 24px
+  #         font-weight: bold
+  #         color: '#fcf178'
+  #       delay: 300
+  #       linebreak: false
+  #     - text: '啊啊啊啊 '
+  #       style:
+  #         font-size: 32px
+  #         font-weight: bold
+  #         color: '#44B2F5'
+  #       delay: 300
+  #       linebreak: true
+  #     - text: 我好困 …… 写不完 ……
+  #     - text: 书生的微博
+  #       link: http://weibo.com/ben7th
 
   - npc: ben7th
     sentences:
@@ -131,4 +151,12 @@ scripts:
   - npc: android
     sentences:
       - text: 楼上真的没有消失啊
+    clear: false
+
+  - select: CSS 是什么？
+    items:
+      - 好吃的东西
+      - 一种样式表语言
+      - 神秘的咒语
+      - 叉(C) 烧(S) 笋(S)
     clear: false
