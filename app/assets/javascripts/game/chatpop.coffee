@@ -42,37 +42,47 @@ window.ChatPop = class ChatPop
         .html @npc.name + ":"
         .appendTo @$pop
 
-  text: (string, callback)->
-    $text = buildel 'span.text'
-      .appendTo @$pop
-      .typing_string string, callback
+  text: (string, callback, config={})->
+    if config.link?
+      $text = buildel 'a.text.link'
+        .attr 'href', config.link
+        .attr 'target', '_blank'
+        .appendTo @$pop
+        .on 'click', (evt)->
+          evt.stopPropagation()
+    else
+      $text = buildel 'span.text'
+        .appendTo @$pop
+
+    # 样式
+    if config.style?
+      $text.css config.style
+    
+    # 换行或不换行
+    if config.linebreak is true
+      $text.typing_string string, callback
+    else
+      $text.typing_string_nobr string, callback
 
   append: (sentence)->
     callback_holder = new CallbackHolder
     finish = ->
       callback_holder.do 'appended'
 
-    @text sentence.text, =>
-      @wait finish
+    if sentence.delay is -1
+      textdone = =>
+        @wait finish
+    else
+      textdone = ->
+        setTimeout finish, sentence.delay
+
+    @text sentence.text, textdone, {
+      linebreak: sentence.linebreak
+      style: sentence.style
+      link: sentence.link
+    }
 
     return callback_holder
-
-    # $log = buildel 'div.log'
-    #   .appendTo @$pop
-    #   .typing_string str, callback
-
-  # append_link: (url, text, title, callback)->
-  #   $log = buildel 'div.log'
-  #     .appendTo @$pop
-  #   $a = buildel 'a.chat-link'
-  #     .attr
-  #       href: url
-  #       title: title
-  #       target: '_blank'
-  #     .appendTo $log
-  #     .typing_string text, callback
-  #     .on 'click', (evt)->
-  #       evt.stopPropagation()
 
   wait: (callback)->
     $wait = buildel 'div.click-to-continue'
@@ -113,4 +123,5 @@ window.ChatPop = class ChatPop
       return
 
     gamelog '[chatpop] sentences finished'
-    @remove -> callback()
+    # @remove -> callback()
+    callback()

@@ -12,8 +12,8 @@ window.Game = class Game
     for npc_data in @data.npcs
       @npcs[npc_data.id] = new NPC npc_data
 
-  get_npc: (name)->
-    @npcs[name]
+  get_npc: (id)->
+    @npcs[id]
 
   init: ->
     @runner = new ScriptRunner @

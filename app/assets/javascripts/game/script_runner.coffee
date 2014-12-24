@@ -8,14 +8,21 @@ window.ScriptRunner = class ScriptRunner
     finish = ->
       callback_holder.do 'finish'
 
-    # 旁白
-    if script.aside?
-      gamelog '[runner] script is ASIDE'
-      @chatbox
-        .show_aside script
-        .on 'finish', =>
-          gamelog '[runner] aside finished'
-          finish()
+    _run = =>
+      # sentences
+      if script.sentences
+        gamelog '[runner] script SENTENCES'
+        @chatbox
+          .show_sentences script
+          .on 'finish', =>
+            gamelog '[runner] SENTENCES finished'
+            finish()
+
+    script.clear ?= true
+    if script.clear
+      @chatbox.clear _run
+    else
+      _run()
 
     return callback_holder
 

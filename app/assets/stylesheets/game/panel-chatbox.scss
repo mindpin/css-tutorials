@@ -29,7 +29,7 @@ $c: lighten(#4cc85e, 20%);
   .chatpop {
     @include clearfix;
     position: relative;
-    padding: $grid-gap / 2;
+    padding: $grid-gap / 2 0;
     padding-bottom: 0;
 
     $w: 64px;
@@ -43,6 +43,7 @@ $c: lighten(#4cc85e, 20%);
 
     .area {
       margin-left: $w + $grid-gap / 2 + 10px;
+      @include clearfix;
 
       .pop {
         float: left;
@@ -54,6 +55,8 @@ $c: lighten(#4cc85e, 20%);
         cursor:default;
         position: relative;
         margin-bottom: 10px;
+        box-sizing:border-box;
+        max-width:100%;
 
         $w1: $w;
         &:before {
@@ -68,6 +71,11 @@ $c: lighten(#4cc85e, 20%);
 
         .name {
           color:#999;
+        }
+
+        a.text.link {
+          text-decoration: none;
+          border-bottom:dashed 1px;
         }
       }
 

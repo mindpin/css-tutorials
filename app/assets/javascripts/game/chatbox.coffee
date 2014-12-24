@@ -2,27 +2,40 @@
 window.ChatBox = class ChatBox
   constructor: (@game)->
     @$chatbox = jQuery('.panel.chatbox')
+    @pops = []
 
-  # 显示旁白脚本
+  # 清除所有泡泡，再调用回调方法
+  clear: (callback)->
+    _clear_count = @pops.length
+    return callback() if _clear_count is 0
+
+    for pop in @pops
+      pop.remove ->
+        _clear_count--
+        callback() if _clear_count is 0
+
+  # 显示对话脚本
+  # 对话脚本可能包括 NPC 头像
   # 依次显示所有子句
   # 当子句全部显示完毕后，执行回调
-  show_aside: (script)->
+  show_sentences: (script, callback)->
     callback_holder = new CallbackHolder
     finish = ->
       callback_holder.do 'finish'
 
-    gamelog '[chatbox] show aside'
-    chatpop = new ChatPop @$chatbox
+    gamelog '[chatbox] show SENTENCES'
+
+    npc =  @game.get_npc script.npc if script.npc
+
+    chatpop = new ChatPop @$chatbox, npc
     chatpop
-      .sentences script.aside
+      .sentences script.sentences
       .on 'finish', ->
         finish()
 
+    @pops.push chatpop
+
     return callback_holder
-    
-    # chatpop = new ChatPop @$chatbox
-    # chatpop.callback = callback
-    # @_show chatpop, script.aside, 0
 
   # # 显示 html 片断
   # show_html: (script, callback)->
@@ -43,22 +56,7 @@ window.ChatBox = class ChatBox
   #     questionpop.remove()
   #     callback()
 
-  # # 显示对话脚本
-  # # 对话脚本包括 NPC 头像
-  # # 对话脚本可能包含多句对话
-  # # 每一句对话后，需要显示“点击继续”
-  # # 点击后，继续下一句对话
-  # # 当对话全部完毕后，点击运行 callback
-  # show_chat: (script, callback)->
-  #   gamelog "[chatbox] show chat by npc: #{script.chat}"
-  #   gamelog script
-  #   npc =  @game.get_npc script.chat
-    
-  #   chatpop = new ChatPop @$chatbox, npc
-  #   chatpop.callback = callback
 
-  #   @keep = script.keep # 是否保持对话泡泡
-  #   @_show chatpop, script.content, 0
 
   # _show: (chatpop, content, idx)->
   #   if idx < content.length
