@@ -4,9 +4,14 @@
 
   .stories-list
     .story.intro
-      %a{:href => '/s/0', :data => {:toggle => true}} 
+      / %a{:href => '/s/0', :data => {:toggle => true}} 
+      /   %span #1 
+      /   %span.en INTRO 
+      /   %span.ch 开端
+      %a{:href => '/s/test', :data => {:toggle => true}} 
         %span #1 
-        %span.en INTRO 
-        %span.ch 开端
+        %span.en SAMPLE 
+        %span.ch 测试
+
     .story.unknown
       %a{:href => 'javascript:;'} ???
