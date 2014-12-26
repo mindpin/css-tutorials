@@ -29,6 +29,7 @@ module CssTutorials
     # config.eager_load_paths << "#{Rails.root}/lib"
     config.autoload_paths << "#{Rails.root}/lib"
 
+    # 引用静态字体文件
     config.assets.precompile << Proc.new do |path|
       if path =~ /\.(eot|svg|ttf|woff)\z/
         full_path = Rails.application.assets.resolve(path).to_path
@@ -44,5 +45,6 @@ module CssTutorials
         false
       end
     end
+    
   end
 end
