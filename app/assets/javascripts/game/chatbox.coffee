@@ -46,9 +46,13 @@ window.ChatBox = class ChatBox
     questionpop = new QuestionPop @$chatbox
     questionpop.show script, (result)=>
       gamelog '[chatbox] user selected: ' + result
-      @last_result = result
-      # questionpop.remove()
+      @game.vars script.select, {
+        'items': script.items
+        'selected': result
+      }
       finish()
+
+    @pops.push questionpop
 
     return callback_holder
 

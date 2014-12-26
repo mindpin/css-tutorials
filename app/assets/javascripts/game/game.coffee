@@ -4,8 +4,18 @@ window.Game = class Game
     @scripts = @data.scripts
     @load_npcs()
 
+    # 初始化一些过程变量信息
+    @_vars = {}
+
     @init()
     @start()
+
+  vars: (key, value)->
+    if value?
+      @_vars[key] = value
+      return @
+
+    return @_vars[key]
 
   load_npcs: ->
     @npcs = {}

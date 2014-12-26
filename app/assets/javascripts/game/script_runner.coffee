@@ -26,6 +26,14 @@ window.ScriptRunner = class ScriptRunner
             gamelog '[runner] SELECT finished'
             finish()
 
+      if script.selected
+        selected_idx = @game.vars(script.selected).selected
+        selected_text = @game.vars(script.selected).items[selected_idx]
+
+        gamelog '[runner] script SELECTED: ' + selected_idx + ', ' + selected_text
+        selected_script = script.response[selected_idx]
+        @run(selected_script).on 'finish', finish
+
     script.clear ?= true
     if script.clear
       @chatbox.clear _run
@@ -33,41 +41,3 @@ window.ScriptRunner = class ScriptRunner
       _run()
 
     return callback_holder
-
-
-    # kind = 'chat' if script.chat?
-    # kind = 'select' if script.select?
-    # kind = 'by_last_result' if script.by_last_result?
-    # kind = 'showhtml' if script.showhtml?
-
-    # switch kind
-    #   when 'aside'
-    #     gamelog '[runner] aside:'
-    #     @chatbox.show_aside script, =>
-    #       gamelog '[runner] aside end, run next script'
-    #       callback()
-
-    #   when 'chat'
-    #     gamelog '[runner] chat:'
-    #     @chatbox.show_chat script, =>
-    #       gamelog '[runner] aside end, run next script'
-    #       callback()
-
-    #   when 'by_last_result'
-    #     gamelog '[runner] by last result:'
-    #     script1 = script.by_last_result.scripts[@chatbox.last_result]
-    #     @run script1, callback
-
-    #   when 'showhtml'
-    #     gamelog '[runner] show html:'
-    #     @chatbox.show_html script, =>
-    #       callback()
-
-
-    # kind = 'clearchat' if script.clearchat?
-    # switch kind
-    #   when 'clearchat'
-    #     jQuery(document).trigger('game.clearchat')
-    #     setTimeout ->
-    #       callback()
-    #     , 300

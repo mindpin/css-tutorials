@@ -144,19 +144,45 @@ scripts:
   #     - text: 书生的微博
   #       link: http://weibo.com/ben7th
 
+  - sentences:
+      - ........
+
   - npc: ben7th
     sentences:
       - text: 这个对话泡泡不会消失喔
+    clear: false
 
   - npc: android
     sentences:
       - text: 楼上真的没有消失啊
     clear: false
 
-  - select: CSS 是什么？
+  - npc: android
+    sentences:
+      - text: 请答题
+        delay: 300
+
+  - select: what-is-css
+    text: CSS 是什么？
     items:
       - 好吃的东西
       - 一种样式表语言
       - 神秘的咒语
       - 叉(C) 烧(S) 笋(S)
+    clear: false
+
+  - selected: what-is-css
+    response:
+      - sentences:
+        - 吃货 。。。
+      - sentences:
+        - BINGO
+      - sentences:
+        - 好中二啊
+      - sentences:
+        - 拼音梗
+
+  - npc: ben7th
+    sentences:
+      - CSS 是一种样式表语言
     clear: false

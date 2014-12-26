@@ -28,7 +28,7 @@ window.QuestionPop = class QuestionPop
       .appendTo @$box
 
     @$text = buildel 'div.text'
-      .html script.select
+      .html script.text
       .appendTo @$box
 
     @$items = buildel 'div.items'
@@ -48,15 +48,18 @@ window.QuestionPop = class QuestionPop
     setTimeout =>
       for item, idx in script.items
         $a = @$items.find('a').eq(idx)
-        console.log $a
         $a.one 'click', ->
           result = jQuery(this).data('idx')
           callback(result)
     , 500
 
-  remove: ->
+  # show_selected: ->
+
+
+  remove: (callback)->
     @$questionpop
       .animate
         'opacity': 0
       , 200, =>
         @$questionpop.remove()
+        callback() if callback
