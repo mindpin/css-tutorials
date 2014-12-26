@@ -42,3 +42,5 @@ gem "unicorn"
 gem 'cells', '~> 3.10.1' # 用于复用一些前端组件
 
 gem 'edu-game-map', github: 'mindpin/edu-game-map'
+
+gem "non-stupid-digest-assets"
