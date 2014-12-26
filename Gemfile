@@ -44,3 +44,6 @@ gem 'cells', '~> 3.10.1' # 用于复用一些前端组件
 gem 'edu-game-map', github: 'mindpin/edu-game-map'
 
 gem "non-stupid-digest-assets"
+gem 'mina',
+    :git => 'git://github.com/fushang318/mina.git',
+    :tag => 'v0.2.0fix'
